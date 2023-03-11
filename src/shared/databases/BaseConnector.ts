@@ -1,5 +1,6 @@
 export abstract class BaseConnector {
-    abstract init(): Promise<void>;
+    abstract connect(): Promise<void>;
+    abstract close(): Promise<void>;
 }
 
 export default BaseConnector;
