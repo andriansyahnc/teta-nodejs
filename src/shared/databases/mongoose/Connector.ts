@@ -1,6 +1,6 @@
 import * as mongoose from "mongoose";
 import config from "../../config";
-import { BaseConnector } from "../BaseConnector";
+import BaseConnector from "../BaseConnector";
 
 class Connector extends BaseConnector {
 
