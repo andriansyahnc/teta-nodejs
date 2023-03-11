@@ -1,5 +1,5 @@
 abstract class BaseConnector {
-    abstract connect(): Promise<void>;
+    abstract connect(): Promise<boolean>;
     abstract close(): Promise<unknown>;
 }
 
