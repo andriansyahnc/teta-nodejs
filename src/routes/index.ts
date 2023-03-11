@@ -7,6 +7,6 @@ router.get('/', (req: Request, res: Response) => {
     res.send('Express + TypeScript Server');
 });
 
-router.use('/monsters', monsterRouter)
+router.use('/monsters', monsterRouter);
 
 export default router;
