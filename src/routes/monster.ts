@@ -1,6 +1,6 @@
 import express, {NextFunction, Request, Response} from 'express';
 import httpStatus from "http-status";
-import MonsterControllers from "../monster/controllers";
+import MonsterControllers from "../monster/controllers/MonsterController";
 
 const router = express.Router();
 
