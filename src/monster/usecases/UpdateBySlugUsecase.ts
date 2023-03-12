@@ -30,7 +30,7 @@ export default class UpdateBySlugUsecase {
         } catch (e) {
             await session.abortTransaction();
             if (e instanceof ErrorHandler) {
-                throw e;
+                throw new ErrorHandler(e.message, e.statusCode);
             }
             const err = e as Error;
             throw new ErrorHandler(err.message, httpStatus.INTERNAL_SERVER_ERROR)

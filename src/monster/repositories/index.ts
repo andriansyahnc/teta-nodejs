@@ -36,6 +36,9 @@ class MonsterRepository extends BaseRepository<IMonster, FilterMonster> {
             }
             return foundMonster;
         } catch (e) {
+            if (e instanceof ErrorHandler) {
+                throw new ErrorHandler(`Failed to update monster by slug: ${e.message}`, e.statusCode);
+            }
             const error = e as Error;
             throw new Error(`Failed to update monster by slug: ${error.message}`);
         }
