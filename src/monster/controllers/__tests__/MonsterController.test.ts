@@ -46,7 +46,7 @@ describe("MonsterController", () => {
                 .spyOn(FindAllMonsterUsecase.prototype, "execute")
                 .mockResolvedValueOnce(monsterData);
 
-            const result = await controller.findAllMonster(filterData);
+            const result = await controller.findMonsters(filterData);
 
             expect(result).toEqual(monsterData);
             expect(mockExecute).toHaveBeenCalledWith(filterData);

@@ -8,7 +8,7 @@ class MonsterController {
         return usecase.execute(body);
     }
 
-    async findAllMonster(body: any) {
+    async findMonsters(body: any) {
         const usecase = new FindAllMonsterUsecase();
         return usecase.execute(body);
     }

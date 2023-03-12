@@ -7,7 +7,7 @@ const router = express.Router();
 router.post('/find', async (req: Request, res: Response, next: NextFunction) => {
     try {
         const controller = new MonsterController();
-        const response = await controller.findAllMonster(req.body);
+        const response = await controller.findMonsters(req.body);
         res.status(httpStatus.OK).send(response);
     } catch (e) {
         next(e);
