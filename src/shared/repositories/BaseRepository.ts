@@ -1,5 +1,5 @@
-abstract class BaseRepository<T> {
-    abstract find(): Promise<T[]>;
+abstract class BaseRepository<T, U> {
+    abstract findByProperties(data: U): Promise<T[]>;
     abstract findById(id: number): Promise<T>;
     abstract create(data: T): Promise<T>;
     abstract updateById(id: number, data: Partial<T>): Promise<T>;

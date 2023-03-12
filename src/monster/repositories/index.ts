@@ -1,7 +1,7 @@
 import BaseRepository from "../../shared/repositories/BaseRepository";
 import Monster, {FilterMonster, IMonster} from "../../shared/models/mongoose/monsterSchema";
 
-class MonsterRepository extends BaseRepository<IMonster> {
+class MonsterRepository extends BaseRepository<IMonster, FilterMonster> {
     async create(data: IMonster): Promise<IMonster> {
         try {
             const monster = await Monster.create(data);
@@ -10,16 +10,6 @@ class MonsterRepository extends BaseRepository<IMonster> {
         catch (e) {
             const error = e as Error;
             throw new Error(`Failed to create monster: ${error.message}`)
-        }
-    }
-
-    async find(): Promise<IMonster[]> {
-        try {
-            const foundMonsters = await Monster.find();
-            return foundMonsters;
-        } catch (e) {
-            const error = e as Error;
-            throw new Error(`Failed to find all monsters: ${error.message}`);
         }
     }
 
@@ -62,7 +52,7 @@ class MonsterRepository extends BaseRepository<IMonster> {
         }
     }
 
-    async findByProperties(data: FilterMonster) {
+    async findByProperties(data: FilterMonster): Promise<IMonster[]> {
         try {
             const foundMonster = await Monster.find(data);
             return foundMonster;
