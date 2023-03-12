@@ -4,39 +4,27 @@ import MonsterRepository from "../../repositories";
 import { IMonster } from "../../../shared/models/mongoose/monsterSchema";
 import FindAllMonsterUsecase from "../FindAllMonsterUsecase";
 
-let mongoServer: MongoMemoryServer;
-let conn: mongoose.Mongoose;
-
-beforeAll(async () => {
-    mongoServer = await MongoMemoryServer.create();
-    conn = await mongoose.connect(mongoServer.getUri());
-});
-
-afterAll(async () => {
-    await conn.disconnect();
-    await mongoServer.stop();
-});
-
 describe("FindAllMonsterUsecase", () => {
+    let mongoServer: MongoMemoryServer;
     let usecase: FindAllMonsterUsecase;
     let repository: MonsterRepository;
+    let monster1: IMonster;
+    let monster2: IMonster;
 
-    beforeEach(() => {
+    beforeAll(async () => {
+        mongoServer = await MongoMemoryServer.create();
+        const mongoUri = mongoServer.getUri();
+        await mongoose.connect(mongoUri);
+
         usecase = new FindAllMonsterUsecase();
         repository = new MonsterRepository();
-    });
 
-    afterEach(async () => {
-        await conn.connection.db.dropDatabase();
-    });
-
-    it("should find all monsters", async () => {
-        const monster1: IMonster = {
+         monster1 = {
             name: "Pikachu",
             types: ["Electric", "Mice"],
             image: "https://www.pokemon.com/us/pokedex/pikachu",
         };
-        const monster2: IMonster = {
+        monster2 = {
             name: "Charmander",
             types: ["Fire", "Dragon"],
             image: "https://www.pokemon.com/us/pokedex/charmander"
@@ -44,7 +32,14 @@ describe("FindAllMonsterUsecase", () => {
 
         await repository.create(monster1);
         await repository.create(monster2);
+    })
 
+    afterAll(async () => {
+        await mongoose.disconnect();
+        await mongoServer.stop();
+    });
+
+    it("should find all monsters", async () => {
         const filter = {};
 
         const result = await usecase.execute(filter);
@@ -53,20 +48,6 @@ describe("FindAllMonsterUsecase", () => {
     });
 
     it("should find all monsters with matching properties", async () => {
-        const monster1: IMonster = {
-            name: "Pikachu",
-            types: ["Electric", "Mice"],
-            image: "https://www.pokemon.com/us/pokedex/pikachu",
-        };
-        const monster2: IMonster = {
-            name: "Charmander",
-            types: ["Fire", "Dragon"],
-            image: "https://www.pokemon.com/us/pokedex/charmander"
-        };
-
-        await repository.create(monster1);
-        await repository.create(monster2);
-
         const filter = {
             name: "Pikachu",
         };
@@ -87,11 +68,30 @@ describe("FindAllMonsterUsecase", () => {
         expect(result1[0].types).toEqual(monster2.types);
     });
 
+    it("should find no match with unmatching properties", async () => {
+        const filter = {
+            name: "Bulbasaur",
+        };
+
+        const result = await usecase.execute(filter);
+
+        expect(result.length).toEqual(0);
+    });
+
     it("should throw an error if the filter is invalid", async () => {
         const filter = {
             invalidProperty: "invalidValue",
         };
 
+        await expect(usecase.execute(filter as any)).rejects.toThrow();
+    });
+
+    it("should throw an error if there is a database issue", async () => {
+        const filter = {
+            name: "Pikachu",
+        };
+
+        await mongoose.disconnect();
         await expect(usecase.execute(filter as any)).rejects.toThrow();
     });
 });
