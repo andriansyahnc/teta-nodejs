@@ -7,10 +7,10 @@ const adminMiddleware = (req: Request, res: Response, next: NextFunction) => {
     if (!decoded.id) {
         next(new ErrorHandler('unauthorized', httpStatus.UNAUTHORIZED));
     } else if (decoded.role !== 'admin') {
-            next(new ErrorHandler('unauthorized', httpStatus.UNAUTHORIZED));
-        } else {
-            next();
-        }
+        next(new ErrorHandler('unauthorized', httpStatus.UNAUTHORIZED));
+    } else {
+        next();
+    }
 
 }
 
