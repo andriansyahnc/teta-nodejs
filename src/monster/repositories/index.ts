@@ -13,19 +13,6 @@ class MonsterRepository extends BaseRepository<IMonster, FilterMonster> {
         }
     }
 
-    async findById(id: number): Promise<IMonster> {
-        try {
-            const foundMonster = await Monster.findById(id);
-            if (!foundMonster) {
-                throw new Error(`Failed to find monster by ID: not found`)
-            }
-            return foundMonster;
-        } catch (e) {
-            const error = e as Error;
-            throw new Error(`Failed to find monster by ID: ${error.message}`);
-        }
-    }
-
     async delete(id: number): Promise<IMonster> {
         try {
             const foundMonster = await Monster.findByIdAndDelete(id);
