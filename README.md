@@ -14,9 +14,9 @@
 
 ### User / Guest API
 
-`GET /monsters`: list all monsters with name and image
-`GET /monsters/:id`: get details of a specific monster
-`PATCH /monsters/:id/captured`: mark a specific monster as captured
+- `GET /monsters`: list all monsters with name and image
+- `GET /monsters/:id`: get details of a specific monster
+- `PATCH /monsters/:id/captured`: mark a specific monster as captured
 
 ### User API
 
