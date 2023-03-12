@@ -26,16 +26,16 @@ class MonsterRepository extends BaseRepository<IMonster, FilterMonster> {
         }
     }
 
-    async updateById(id: number, data: Partial<IMonster>): Promise<IMonster> {
+    async updateBySlug(slug: string, data: Partial<IMonster>): Promise<IMonster> {
         try {
-            const foundMonster = await Monster.findByIdAndUpdate(id, data);
+            const foundMonster = await Monster.findOneAndUpdate({ slug }, data);
             if (!foundMonster) {
-                throw new Error(`Failed to update monster by ID: not found`)
+                throw new Error(`Failed to update monster by slug: not found`)
             }
             return foundMonster;
         } catch (e) {
             const error = e as Error;
-            throw new Error(`Failed to update monster by ID: ${error.message}`);
+            throw new Error(`Failed to update monster by slug: ${error.message}`);
         }
     }
 

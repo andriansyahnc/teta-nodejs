@@ -35,8 +35,15 @@ router.get('/:slug', async (req: Request, res: Response, next: NextFunction) => 
     }
 });
 
-router.patch('/:id', async (req: Request, res: Response) => {
-    res.send('Update Monster by ID');
+router.patch('/:slug', async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const controller = new MonsterController();
+        const { slug } = req.params;
+        const response = await controller.updateMonsterBySlug(slug, req.body);
+        res.status(httpStatus.OK).send(response);
+    } catch (e) {
+        next(e);
+    }
 });
 
 router.delete('/:id', async (req: Request, res: Response) => {

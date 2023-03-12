@@ -81,7 +81,7 @@ const monsterSchema = new Schema<IMonster>({
         required: false,
         unique: true,
     },
-});
+}, { timestamps: true });
 
 monsterSchema.pre<IMonster>('save', function (next) {
     this.slug = slugify(this.name, { lower: true });

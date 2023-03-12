@@ -14,6 +14,8 @@ const monsterJoiSchema = Joi.object({
     speed: Joi.number(),
 });
 
+export const updateMonsterJoiSchema = monsterJoiSchema.fork(['name', 'nickname', 'types', 'image'], field => field.optional())
+
 export const findMonsterJoiSchema = Joi.object({
     name: Joi.string(),
     nickname: Joi.string(),
