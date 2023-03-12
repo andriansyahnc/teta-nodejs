@@ -14,6 +14,7 @@ export interface IMonster {
     defense?: number;
     speed?: number;
     slug?: string;
+    isDeleted?: boolean;
 }
 
 export interface FilterMonster {
@@ -29,6 +30,7 @@ export interface FilterMonster {
     defense?: number;
     speed?: number;
     slug?: string;
+    isDeleted?: boolean;
 }
 
 const monsterSchema = new Schema<IMonster>({
@@ -81,10 +83,15 @@ const monsterSchema = new Schema<IMonster>({
         required: false,
         unique: true,
     },
+    isDeleted: {
+        type: Boolean,
+        required: false,
+    }
 }, { timestamps: true });
 
 monsterSchema.pre<IMonster>('save', function (next) {
     this.slug = slugify(this.name, { lower: true });
+    this.isDeleted = false;
     next();
 });
 

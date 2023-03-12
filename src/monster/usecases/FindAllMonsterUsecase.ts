@@ -19,6 +19,9 @@ export default class FindAllMonsterUsecase {
             throw new ErrorHandler(error.message, httpStatus.UNPROCESSABLE_ENTITY)
         }
         try {
+            if (!value.isDeleted) {
+                value.isDeleted = false;
+            }
             if (value.types) {
                 value.types = {
                     "$in": value.types

@@ -15,22 +15,24 @@ class MonsterRepository extends BaseRepository<IMonster, FilterMonster> {
         }
     }
 
-    async delete(id: number): Promise<IMonster> {
+    async delete(slug: string): Promise<void> {
         try {
-            const foundMonster = await Monster.findByIdAndDelete(id);
-            if (!foundMonster) {
-                throw new Error(`not found`)
+            const result = await Monster.findOneAndDelete({slug, isDeleted: false});
+            if (!result) {
+                throw new ErrorHandler('not found', httpStatus.NOT_FOUND)
             }
-            return foundMonster;
         } catch (e) {
+            if (e instanceof ErrorHandler) {
+                throw new ErrorHandler(`Failed to delete monster by slug: ${e.message}`, e.statusCode);
+            }
             const error = e as Error;
-            throw new Error(`Failed to delete monster by ID: ${error.message}`);
+            throw new Error(`Failed to delete monster by slug: ${error.message}`);
         }
     }
 
     async updateBySlug(slug: string, data: Partial<IMonster>): Promise<IMonster> {
         try {
-            const foundMonster = await Monster.findOneAndUpdate({ slug }, data);
+            const foundMonster = await Monster.findOneAndUpdate({ slug, isDeleted: false }, data);
             if (!foundMonster) {
                 throw new ErrorHandler(`not found`, httpStatus.NOT_FOUND)
             }

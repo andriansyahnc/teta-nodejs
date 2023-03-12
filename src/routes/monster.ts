@@ -46,8 +46,15 @@ router.patch('/:slug', async (req: Request, res: Response, next: NextFunction) =
     }
 });
 
-router.delete('/:id', async (req: Request, res: Response) => {
-    res.send('Delete Monster by ID');
+router.delete('/:slug', async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const controller = new MonsterController();
+        const { slug } = req.params;
+        const response = await controller.deleteMonsterBySlug(slug);
+        res.status(httpStatus.OK).send(response);
+    } catch (e) {
+        next(e);
+    }
 });
 
 export default router;

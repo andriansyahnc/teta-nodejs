@@ -12,7 +12,7 @@ export default class FindMonsterBySlugUsecase {
 
     async execute(slug: string): Promise<IMonster> {
         try {
-            const monsters = await this.repository.findByProperties({ slug });
+            const monsters = await this.repository.findByProperties({ slug, isDeleted: false });
             if (monsters.length === 0) {
                 throw new ErrorHandler("Monster not found.", httpStatus.NOT_FOUND)
             }

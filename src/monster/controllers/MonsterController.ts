@@ -3,6 +3,7 @@ import FindAllMonsterUsecase from "../usecases/FindAllMonsterUsecase";
 import FindMonsterBySlugUsecase from "../usecases/FindMonsterBySlugUsecase";
 import {IMonster} from "../../shared/models/mongoose/monsterSchema";
 import UpdateBySlugUsecase from "../usecases/UpdateBySlugUsecase";
+import DeleteBySlugUsecase from "../usecases/DeleteBySlugUsecase";
 
 class MonsterController {
 
@@ -24,6 +25,11 @@ class MonsterController {
     async updateMonsterBySlug(slug: string, data: Partial<IMonster>) {
         const usecase = new UpdateBySlugUsecase();
         return usecase.execute(slug, data)
+    }
+
+    async deleteMonsterBySlug(slug: string) {
+        const usecase = new DeleteBySlugUsecase();
+        return usecase.execute(slug)
     }
 }
 
