@@ -27,7 +27,7 @@ export default class FindAllMonsterUsecase {
             }
             if (value.name) {
                 value.name = {
-                    "$regex": `.*${value.types}.*`
+                    "$regex": new RegExp(value.name, "i")
                 }
             }
             return await this.repository.findByProperties(value);

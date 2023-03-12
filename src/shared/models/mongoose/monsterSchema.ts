@@ -1,10 +1,10 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 import slugify from "slugify";
 
-export interface IMonster extends Document {
+export interface IMonster {
     name: string;
     nickname?: string;
-    types: [string];
+    types: string[];
     image: string;
     description?: string;
     height?: string;
@@ -19,7 +19,7 @@ export interface IMonster extends Document {
 export interface FilterMonster {
     name?: string;
     nickname?: string;
-    types?: [string];
+    types?: string[];
     image?: string;
     description?: string;
     height?: string;
