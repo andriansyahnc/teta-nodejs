@@ -65,13 +65,10 @@ class MonsterRepository extends BaseRepository<IMonster> {
     async findByProperties(data: FilterMonster) {
         try {
             const foundMonster = await Monster.find(data);
-            if (!foundMonster) {
-                throw new Error(`Failed to update monster by ID: not found`)
-            }
             return foundMonster;
         } catch (e) {
             const error = e as Error;
-            throw new Error(`Failed to update monster by ID: ${error.message}`);
+            throw new Error(`Failed to find by properties: ${error.message}`);
         }
     }
 }
