@@ -24,8 +24,15 @@ router.post('/', async (req: Request, res: Response, next: NextFunction) => {
     }
 });
 
-router.get('/:id', async (req: Request, res: Response) => {
-    res.send('Get Monster by ID');
+router.get('/:slug', async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const controller = new MonsterController();
+        const { slug } = req.params;
+        const response = await controller.findMonsterBySlug(slug);
+        res.status(httpStatus.OK).send(response);
+    } catch (e) {
+        next(e);
+    }
 });
 
 router.patch('/:id', async (req: Request, res: Response) => {

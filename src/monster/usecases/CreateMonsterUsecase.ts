@@ -18,7 +18,6 @@ export default class CreateMonsterUsecase {
             abortEarly: false,
         });
         if (error) {
-            console.error(error);
             throw new ErrorHandler(error.message, httpStatus.UNPROCESSABLE_ENTITY)
         }
         const session = await mongoose.startSession();
@@ -28,10 +27,13 @@ export default class CreateMonsterUsecase {
             const result = await this.repository.create(value);
             await session.commitTransaction();
             return result;
-        } catch (err) {
-            const e = err as Error;
+        } catch (e) {
             await session.abortTransaction();
-            throw new ErrorHandler(e.message, httpStatus.INTERNAL_SERVER_ERROR)
+            if (e instanceof ErrorHandler) {
+                throw e;
+            }
+            const err = e as Error;
+            throw new ErrorHandler(err.message, httpStatus.INTERNAL_SERVER_ERROR)
         } finally {
             await session.endSession();
         }

@@ -16,7 +16,6 @@ export default class FindAllMonsterUsecase {
             abortEarly: false,
         });
         if (error) {
-            console.error(error);
             throw new ErrorHandler(error.message, httpStatus.UNPROCESSABLE_ENTITY)
         }
         try {
@@ -31,9 +30,12 @@ export default class FindAllMonsterUsecase {
                 }
             }
             return await this.repository.findByProperties(value);
-        } catch (err) {
-            const e = err as Error;
-            throw new ErrorHandler(e.message, httpStatus.INTERNAL_SERVER_ERROR)
+        } catch (e) {
+            if (e instanceof ErrorHandler) {
+                throw e;
+            }
+            const err = e as Error;
+            throw new ErrorHandler(err.message, httpStatus.INTERNAL_SERVER_ERROR)
         }
     }
 }
