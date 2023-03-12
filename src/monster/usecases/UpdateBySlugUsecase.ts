@@ -13,7 +13,7 @@ export default class UpdateBySlugUsecase {
     }
 
     async execute(slug: string, data: Partial<IMonster>) {
-        const { error, value } = updateMonsterJoiSchema.validate(data, {abortEarly: false, allowUnknown: true});
+        const { error, value } = updateMonsterJoiSchema.validate(data, {abortEarly: false, allowUnknown: false});
 
         if (error) {
             throw new ErrorHandler(error.message, httpStatus.UNPROCESSABLE_ENTITY)

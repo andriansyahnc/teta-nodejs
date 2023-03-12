@@ -1,5 +1,7 @@
+import httpStatus from "http-status";
 import BaseRepository from "../../shared/repositories/BaseRepository";
 import Monster, {FilterMonster, IMonster} from "../../shared/models/mongoose/monsterSchema";
+import ErrorHandler from "../../shared/errors/ErrorHandler";
 
 class MonsterRepository extends BaseRepository<IMonster, FilterMonster> {
     async create(data: IMonster): Promise<IMonster> {
@@ -17,7 +19,7 @@ class MonsterRepository extends BaseRepository<IMonster, FilterMonster> {
         try {
             const foundMonster = await Monster.findByIdAndDelete(id);
             if (!foundMonster) {
-                throw new Error(`Failed to delete monster by ID: not found`)
+                throw new Error(`not found`)
             }
             return foundMonster;
         } catch (e) {
@@ -30,7 +32,7 @@ class MonsterRepository extends BaseRepository<IMonster, FilterMonster> {
         try {
             const foundMonster = await Monster.findOneAndUpdate({ slug }, data);
             if (!foundMonster) {
-                throw new Error(`Failed to update monster by slug: not found`)
+                throw new ErrorHandler(`not found`, httpStatus.NOT_FOUND)
             }
             return foundMonster;
         } catch (e) {
