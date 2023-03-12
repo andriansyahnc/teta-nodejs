@@ -1,5 +1,5 @@
 import BaseRepository from "../../shared/repositories/BaseRepository";
-import Monster, {IMonster} from "../../shared/models/mongoose/monsterSchema";
+import Monster, {FilterMonster, IMonster} from "../../shared/models/mongoose/monsterSchema";
 
 class MonsterRepository extends BaseRepository<IMonster> {
     async create(data: IMonster): Promise<IMonster> {
@@ -62,6 +62,18 @@ class MonsterRepository extends BaseRepository<IMonster> {
         }
     }
 
+    async findByProperties(data: FilterMonster) {
+        try {
+            const foundMonster = await Monster.find(data);
+            if (!foundMonster) {
+                throw new Error(`Failed to update monster by ID: not found`)
+            }
+            return foundMonster;
+        } catch (e) {
+            const error = e as Error;
+            throw new Error(`Failed to update monster by ID: ${error.message}`);
+        }
+    }
 }
 
 export default MonsterRepository;

@@ -1,16 +1,22 @@
 import express, {NextFunction, Request, Response} from 'express';
 import httpStatus from "http-status";
-import MonsterControllers from "../monster/controllers/MonsterController";
+import MonsterController from "../monster/controllers/MonsterController";
 
 const router = express.Router();
 
-router.get('/', async (req: Request, res: Response) => {
-    res.send('Get All Monster');
+router.post('/find', async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const controller = new MonsterController();
+        const response = await controller.findAllMonster(req.body);
+        res.status(httpStatus.OK).send(response);
+    } catch (e) {
+        next(e);
+    }
 });
 
 router.post('/', async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const controller = new MonsterControllers();
+        const controller = new MonsterController();
         const response = await controller.createMonster(req.body);
         res.status(httpStatus.OK).send(response);
     } catch (e) {

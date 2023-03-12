@@ -5,7 +5,7 @@ import ErrorHandler from "../../shared/errors/ErrorHandler";
 import MonsterRepository from "../repositories";
 import {IMonster} from "../../shared/models/mongoose/monsterSchema";
 
-export default class MonsterUsecase {
+export default class CreateMonsterUsecase {
 
     repository: MonsterRepository;
 

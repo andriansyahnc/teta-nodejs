@@ -16,6 +16,21 @@ export interface IMonster extends Document {
     slug?: string;
 }
 
+export interface FilterMonster {
+    name?: string;
+    nickname?: string;
+    types?: [string];
+    image?: string;
+    description?: string;
+    height?: string;
+    weight?: string;
+    hp?: number;
+    attack?: number;
+    defense?: number;
+    speed?: number;
+    slug?: string;
+}
+
 const monsterSchema = new Schema<IMonster>({
     name: {
         type: String,

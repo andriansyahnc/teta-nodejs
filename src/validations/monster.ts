@@ -14,4 +14,18 @@ const monsterJoiSchema = Joi.object({
     speed: Joi.number(),
 });
 
+export const findMonsterJoiSchema = Joi.object({
+    name: Joi.string(),
+    nickname: Joi.string(),
+    types: Joi.array().items(Joi.string()),
+    image: Joi.string(),
+    description: Joi.string(),
+    height: Joi.string(),
+    weight: Joi.string(),
+    hp: Joi.number(),
+    attack: Joi.number(),
+    defense: Joi.number(),
+    speed: Joi.number(),
+});
+
 export default monsterJoiSchema;
