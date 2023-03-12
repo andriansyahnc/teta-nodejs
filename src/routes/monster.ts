@@ -1,6 +1,8 @@
 import express, {NextFunction, Request, Response} from 'express';
 import httpStatus from "http-status";
 import MonsterController from "../monster/controllers/MonsterController";
+import jwtMiddleware from "../shared/middlewares/JWTMiddleware";
+import adminMiddleware from "../shared/middlewares/AdminMiddleware";
 
 const router = express.Router();
 
@@ -14,7 +16,7 @@ router.post('/find', async (req: Request, res: Response, next: NextFunction) => 
     }
 });
 
-router.post('/', async (req: Request, res: Response, next: NextFunction) => {
+router.post('/', jwtMiddleware, adminMiddleware, async (req: Request, res: Response, next: NextFunction) => {
     try {
         const controller = new MonsterController();
         const response = await controller.createMonster(req.body);
@@ -35,7 +37,7 @@ router.get('/:slug', async (req: Request, res: Response, next: NextFunction) => 
     }
 });
 
-router.patch('/:slug', async (req: Request, res: Response, next: NextFunction) => {
+router.patch('/:slug', jwtMiddleware, adminMiddleware, async (req: Request, res: Response, next: NextFunction) => {
     try {
         const controller = new MonsterController();
         const { slug } = req.params;
@@ -46,7 +48,7 @@ router.patch('/:slug', async (req: Request, res: Response, next: NextFunction) =
     }
 });
 
-router.delete('/:slug', async (req: Request, res: Response, next: NextFunction) => {
+router.delete('/:slug', jwtMiddleware, adminMiddleware, async (req: Request, res: Response, next: NextFunction) => {
     try {
         const controller = new MonsterController();
         const { slug } = req.params;
