@@ -91,7 +91,9 @@ const monsterSchema = new Schema<IMonster>({
 
 monsterSchema.pre<IMonster>('save', function (next) {
     this.slug = slugify(this.name, { lower: true });
-    this.isDeleted = false;
+    if (!this.isDeleted) {
+        this.isDeleted = false;
+    }
     next();
 });
 

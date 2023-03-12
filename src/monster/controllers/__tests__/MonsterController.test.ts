@@ -3,6 +3,8 @@ import CreateMonsterUsecase from "../../usecases/CreateMonsterUsecase";
 import {FilterMonster} from "../../../shared/models/mongoose/monsterSchema";
 import FindAllMonsterUsecase from "../../usecases/FindAllMonsterUsecase";
 import FindMonsterBySlugUsecase from "../../usecases/FindMonsterBySlugUsecase";
+import UpdateBySlugUsecase from "../../usecases/UpdateBySlugUsecase";
+import DeleteBySlugUsecase from "../../usecases/DeleteBySlugUsecase";
 
 describe("MonsterController", () => {
     let controller: MonsterController;
@@ -69,6 +71,48 @@ describe("MonsterController", () => {
                 .mockResolvedValueOnce(monsterData);
 
             const result = await controller.findMonsterBySlug(monsterData.slug);
+
+            expect(result).toEqual(monsterData);
+            expect(mockExecute).toHaveBeenCalledWith(monsterData.slug);
+        });
+    });
+
+    describe("updateMonsterBySlug", () => {
+        it("should update monster successfully", async () => {
+            const monsterData: any = {
+                name: "Goblin",
+                health: 100,
+                attack: 20,
+                defense: 10,
+                slug: "goblin"
+            };
+
+            const mockExecute = jest
+                .spyOn(UpdateBySlugUsecase.prototype, "execute")
+                .mockResolvedValueOnce(monsterData);
+
+            const result = await controller.updateMonsterBySlug(monsterData.slug, monsterData);
+
+            expect(result).toEqual(monsterData);
+            expect(mockExecute).toHaveBeenCalledWith(monsterData.slug, monsterData);
+        });
+    });
+
+    describe("deleteMonster", () => {
+        it("should delete monster successfully", async () => {
+            const monsterData: any = {
+                name: "Goblin",
+                health: 100,
+                attack: 20,
+                defense: 10,
+                slug: "goblin"
+            };
+
+            const mockExecute = jest
+                .spyOn(DeleteBySlugUsecase.prototype, "execute")
+                .mockResolvedValueOnce(monsterData);
+
+            const result = await controller.deleteMonsterBySlug(monsterData.slug);
 
             expect(result).toEqual(monsterData);
             expect(mockExecute).toHaveBeenCalledWith(monsterData.slug);

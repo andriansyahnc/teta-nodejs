@@ -17,7 +17,7 @@ class MonsterRepository extends BaseRepository<IMonster, FilterMonster> {
 
     async delete(slug: string): Promise<void> {
         try {
-            const result = await Monster.findOneAndDelete({slug, isDeleted: false});
+            const result = await Monster.findOneAndUpdate({slug, isDeleted: false}, { isDeleted: true });
             if (!result) {
                 throw new ErrorHandler('not found', httpStatus.NOT_FOUND)
             }
