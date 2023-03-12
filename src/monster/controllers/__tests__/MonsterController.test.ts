@@ -2,6 +2,7 @@ import MonsterController from "../MonsterController";
 import CreateMonsterUsecase from "../../usecases/CreateMonsterUsecase";
 import {FilterMonster} from "../../../shared/models/mongoose/monsterSchema";
 import FindAllMonsterUsecase from "../../usecases/FindAllMonsterUsecase";
+import FindMonsterBySlugUsecase from "../../usecases/FindMonsterBySlugUsecase";
 
 describe("MonsterController", () => {
     let controller: MonsterController;
@@ -50,6 +51,27 @@ describe("MonsterController", () => {
 
             expect(result).toEqual(monsterData);
             expect(mockExecute).toHaveBeenCalledWith(filterData);
+        });
+    });
+
+    describe("findMonsterBySlug", () => {
+        it("should find monsters", async () => {
+            const monsterData: any = {
+                name: "Goblin",
+                health: 100,
+                attack: 20,
+                defense: 10,
+                slug: "goblin"
+            };
+
+            const mockExecute = jest
+                .spyOn(FindMonsterBySlugUsecase.prototype, "execute")
+                .mockResolvedValueOnce(monsterData);
+
+            const result = await controller.findMonsterBySlug(monsterData.slug);
+
+            expect(result).toEqual(monsterData);
+            expect(mockExecute).toHaveBeenCalledWith(monsterData.slug);
         });
     });
 });
