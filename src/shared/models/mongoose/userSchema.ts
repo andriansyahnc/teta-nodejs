@@ -2,6 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 import slugify from "slugify";
 
 export interface IUser {
+    _id?: string;
     name: string;
     password: string;
     role: string;
