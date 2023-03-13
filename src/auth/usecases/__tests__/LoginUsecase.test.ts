@@ -36,6 +36,7 @@ describe("LoginUsecase", () => {
     test.each([
         ['admin', 'andriansyahnc'],
         ['user', 'andriansyah'],
+        ['no name', ''],
     ])('failed - %s', async (label, username) => {
         await expect(usecase.execute({username, password: 'wrongpass'})).rejects.toThrow();
     })
