@@ -39,4 +39,9 @@ describe("LoginUsecase", () => {
     ])('failed - %s', async (label, username) => {
         await expect(usecase.execute({username, password: 'wrongpass'})).rejects.toThrow();
     })
+
+    test('failed because there is some issue in database', async () => {
+        await mongoose.disconnect();
+        await expect(usecase.execute({username: 'andriansyahnc', password: 'passcode'})).rejects.toThrow();
+    })
 })
