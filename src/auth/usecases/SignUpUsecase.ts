@@ -1,10 +1,9 @@
-import crypto from "crypto";
-import argon2 from "argon2";
 import httpStatus from "http-status";
 import AuthRepository from "../repositories/AuthRepository";
 import authJoiSchema from "../../validations/auth";
 import ErrorHandler from "../../shared/errors/ErrorHandler";
 import {IUser} from "../../shared/models/mongoose/userSchema";
+import {generateHash} from "../../shared/utils/utility";
 
 export default class SignUpUsecase {
 
@@ -20,8 +19,7 @@ export default class SignUpUsecase {
             throw new ErrorHandler(error.message, httpStatus.UNPROCESSABLE_ENTITY);
         }
         const {username, password} = value;
-        const salt = crypto.randomBytes(16);
-        const hash = await argon2.hash(password, { salt });
+        const hash = await generateHash(password);
         try {
             const isFirst = await this.repository.isFirst();
             if (isFirst) {
