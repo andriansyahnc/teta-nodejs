@@ -30,3 +30,13 @@
 
 - `POST /signup`: create a new user account
 - `POST /login`: authenticate a user and retrieve an access token
+
+## Developer remarks:
+
+1. Haven't started for the captured API yet.
+2. Haven't finished the sort.
+3. I'm using mongodb because of it's:
+
+   - Scalability: Mongodb is designed for scaling horizontally, which means it can handle more traffic and more data, different to mysql, which is more designed vertically
+   - Easier to implement / Flexible: Due to using document based storage, when there are some change in the schema, it is not really hard to sync it.
+   - Performance: Mongodb has a built in support for sharding and replication, hence improving performance and redundancy.
