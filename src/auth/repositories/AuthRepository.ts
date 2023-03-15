@@ -63,7 +63,7 @@ export default class AuthRepository {
                 throw new ErrorHandler(e.message, e.statusCode)
             }
             const error = e as Error;
-            throw new Error(`Failed to check is first: ${error.message}`)
+            throw new Error(`Failed to check search user: ${error.message}`)
         }
 
 

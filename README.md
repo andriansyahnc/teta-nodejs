@@ -26,4 +26,3 @@
 
 - `POST /signup`: create a new user account
 - `POST /login`: authenticate a user and retrieve an access token
-- `POST /refresh-token`: submit a refresh token to obtain a new access token and refresh token pair.
