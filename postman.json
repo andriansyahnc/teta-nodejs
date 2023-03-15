@@ -1,0 +1,1495 @@
+{
+	"info": {
+		"_postman_id": "60ee5a38-19ee-4b34-b5b3-063f7e4d09dd",
+		"name": "TeTa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "120090"
+	},
+	"item": [
+		{
+			"name": "Monster",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGUwNzIwZWM2YzEwOTA0YWI5YjI2YSIsIm5hbWUiOiJhbmRyaWFuc3lhaCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY3ODY0NDc0NiwiZXhwIjoxNjc4NjUwNzQ2fQ.DWtd1J8Qx6wMHVWQRphOKXPEwz3fv3fGPBTXrprMIIo-EN27YlMCHfSNS2q8YftzQFIDBXPw2oim1OBxgxyaOg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Bulbasaur\",\n    \"nickname\": \"The little Bulba\",\n    \"types\": [\n        \"Grass\",\n        \"Poison\"\n    ],\n    \"image\": \"https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png\",\n    \"description\": \"There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.\",\n    \"height\": \"2' 04\\\"\",\n    \"weight\": \"15.2 lbs\",\n    \"hp\": 30,\n    \"attack\": 30,\n    \"defense\": 30,\n    \"speed\": 30\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/monsters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"monsters"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Succeed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Bulbasaur\",\n    \"nickname\": \"The little Bulba\",\n    \"types\": [\n        \"Grass\",\n        \"Poison\"\n    ],\n    \"image\": \"https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png\",\n    \"description\": \"There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.\",\n    \"height\": \"2' 04\\\"\",\n    \"weight\": \"15.2 lbs\",\n    \"hp\": 30,\n    \"attack\": 30,\n    \"defense\": 30,\n    \"speed\": 30\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/monsters",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"monsters"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "494"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1ee-7TDCbPkjh0gAH5uXYlg2wLQPngA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Mar 2023 14:37:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Bulbasaur\",\n    \"nickname\": \"The little Bulba\",\n    \"types\": [\n        \"Grass\",\n        \"Poison\"\n    ],\n    \"image\": \"https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png\",\n    \"description\": \"There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.\",\n    \"height\": \"2' 04\\\"\",\n    \"weight\": \"15.2 lbs\",\n    \"hp\": 30,\n    \"attack\": 30,\n    \"defense\": 30,\n    \"speed\": 30,\n    \"_id\": \"640de396db967af07cf6fc57\",\n    \"createdAt\": \"2023-03-12T14:37:10.464Z\",\n    \"updatedAt\": \"2023-03-12T14:37:10.464Z\",\n    \"slug\": \"bulbasaur\",\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "Create Failed due to duplicate",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Bulbasaur\",\n    \"nickname\": \"The little Bulba\",\n    \"types\": [\n        \"Grass\",\n        \"Poison\"\n    ],\n    \"image\": \"https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png\",\n    \"description\": \"There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.\",\n    \"height\": \"2' 04\\\"\",\n    \"weight\": \"15.2 lbs\",\n    \"hp\": 30,\n    \"attack\": 30,\n    \"defense\": 30,\n    \"speed\": 30\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/monsters",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"monsters"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "139"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8b-MfgzYeJHLs0DhNB7AoOARs3/OWM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Mar 2023 14:37:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Failed to create monster: E11000 duplicate key error collection: test.monsters index: slug_1 dup key: { slug: \\\"bulbasaur\\\" }\"\n}"
+						},
+						{
+							"name": "Create failed due to missing required parameter",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Bulbasaur\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/monsters",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"monsters"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"54-yjGgRaU42Zs9rCMVwvcuVArVZCE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Mar 2023 14:37:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"\\\"nickname\\\" is required. \\\"types\\\" is required. \\\"image\\\" is required\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Find Monsters",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"bulbasaurs\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/monsters/find",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"monsters",
+								"find"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Find Monsters By Multiple Types",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"types\": [\"Grass\", \"Poison\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/monsters/find",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"monsters",
+										"find"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "496"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1f0-2MUQIifSOVPOHfTNENASCaVWz+k\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Mar 2023 14:38:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"640de396db967af07cf6fc57\",\n        \"name\": \"Bulbasaur\",\n        \"nickname\": \"The little Bulba\",\n        \"types\": [\n            \"Grass\",\n            \"Poison\"\n        ],\n        \"image\": \"https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png\",\n        \"description\": \"There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.\",\n        \"height\": \"2' 04\\\"\",\n        \"weight\": \"15.2 lbs\",\n        \"hp\": 30,\n        \"attack\": 30,\n        \"defense\": 30,\n        \"speed\": 30,\n        \"createdAt\": \"2023-03-12T14:37:10.464Z\",\n        \"updatedAt\": \"2023-03-12T14:37:10.464Z\",\n        \"slug\": \"bulbasaur\",\n        \"__v\": 0\n    }\n]"
+						},
+						{
+							"name": "Find Monsters By Single Type",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"types\": [\"Grass\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/monsters/find",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"monsters",
+										"find"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "496"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1f0-2MUQIifSOVPOHfTNENASCaVWz+k\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Mar 2023 14:38:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"640de396db967af07cf6fc57\",\n        \"name\": \"Bulbasaur\",\n        \"nickname\": \"The little Bulba\",\n        \"types\": [\n            \"Grass\",\n            \"Poison\"\n        ],\n        \"image\": \"https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png\",\n        \"description\": \"There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.\",\n        \"height\": \"2' 04\\\"\",\n        \"weight\": \"15.2 lbs\",\n        \"hp\": 30,\n        \"attack\": 30,\n        \"defense\": 30,\n        \"speed\": 30,\n        \"createdAt\": \"2023-03-12T14:37:10.464Z\",\n        \"updatedAt\": \"2023-03-12T14:37:10.464Z\",\n        \"slug\": \"bulbasaur\",\n        \"__v\": 0\n    }\n]"
+						},
+						{
+							"name": "Find Monsters by incomplete name",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"bulba\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/monsters/find",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"monsters",
+										"find"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "496"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1f0-2MUQIifSOVPOHfTNENASCaVWz+k\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Mar 2023 14:39:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"640de396db967af07cf6fc57\",\n        \"name\": \"Bulbasaur\",\n        \"nickname\": \"The little Bulba\",\n        \"types\": [\n            \"Grass\",\n            \"Poison\"\n        ],\n        \"image\": \"https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png\",\n        \"description\": \"There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.\",\n        \"height\": \"2' 04\\\"\",\n        \"weight\": \"15.2 lbs\",\n        \"hp\": 30,\n        \"attack\": 30,\n        \"defense\": 30,\n        \"speed\": 30,\n        \"createdAt\": \"2023-03-12T14:37:10.464Z\",\n        \"updatedAt\": \"2023-03-12T14:37:10.464Z\",\n        \"slug\": \"bulbasaur\",\n        \"__v\": 0\n    }\n]"
+						},
+						{
+							"name": "Find Monsters By Complete Name",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"bulbasaur\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/monsters/find",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"monsters",
+										"find"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "496"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1f0-2MUQIifSOVPOHfTNENASCaVWz+k\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Mar 2023 14:39:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"640de396db967af07cf6fc57\",\n        \"name\": \"Bulbasaur\",\n        \"nickname\": \"The little Bulba\",\n        \"types\": [\n            \"Grass\",\n            \"Poison\"\n        ],\n        \"image\": \"https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png\",\n        \"description\": \"There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.\",\n        \"height\": \"2' 04\\\"\",\n        \"weight\": \"15.2 lbs\",\n        \"hp\": 30,\n        \"attack\": 30,\n        \"defense\": 30,\n        \"speed\": 30,\n        \"createdAt\": \"2023-03-12T14:37:10.464Z\",\n        \"updatedAt\": \"2023-03-12T14:37:10.464Z\",\n        \"slug\": \"bulbasaur\",\n        \"__v\": 0\n    }\n]"
+						},
+						{
+							"name": "No Monster Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"bulbasaurs\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/monsters/find",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"monsters",
+										"find"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Mar 2023 14:39:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[]"
+						}
+					]
+				},
+				{
+					"name": "Find Monster By Slug",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Bulbasaur\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/monsters/bulbasaur",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"monsters",
+								"bulbasaur"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Bulbasaur\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/monsters/bulbasaurs",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"monsters",
+										"bulbasaurs"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"20-fEp19RM+3PgGfFL7jAy3zSJPOXw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Mar 2023 14:40:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Monster not found.\"\n}"
+						},
+						{
+							"name": "Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Bulbasaur\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/monsters/bulbasaur",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"monsters",
+										"bulbasaur"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "494"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1ee-PoLa4Z8M3uIm21mGrq7/Hv83U4o\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Mar 2023 14:41:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"640de396db967af07cf6fc57\",\n    \"name\": \"Bulbasaur\",\n    \"nickname\": \"The little Bulba\",\n    \"types\": [\n        \"Grass\",\n        \"Poison\"\n    ],\n    \"image\": \"https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png\",\n    \"description\": \"There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.\",\n    \"height\": \"2' 04\\\"\",\n    \"weight\": \"15.2 lbs\",\n    \"hp\": 30,\n    \"attack\": 30,\n    \"defense\": 30,\n    \"speed\": 30,\n    \"createdAt\": \"2023-03-12T14:37:10.464Z\",\n    \"updatedAt\": \"2023-03-12T14:37:10.464Z\",\n    \"slug\": \"bulbasaur\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Monster",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"speed\": 39\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/monsters/:slug",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"monsters",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "bulbasaur"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Not found",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"speed\": 37\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/monsters/:slug",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"monsters",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "bulbasaurs"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"39-LWaqCf2MG6k7Gu/3UcnPZOtc+aE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Mar 2023 15:47:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Failed to update monster by slug: not found\"\n}"
+						},
+						{
+							"name": "Update Monster Succeed",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"speed\": 39\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/monsters/:slug",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"monsters",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "bulbasaur"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "494"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1ee-sEBnQfiFUcPoVOpeK6D7FA+rQB4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Mar 2023 15:48:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"640de396db967af07cf6fc57\",\n    \"name\": \"Bulbasaur\",\n    \"nickname\": \"The little Bulba\",\n    \"types\": [\n        \"Grass\",\n        \"Poison\"\n    ],\n    \"image\": \"https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png\",\n    \"description\": \"There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.\",\n    \"height\": \"2' 04\\\"\",\n    \"weight\": \"15.2 lbs\",\n    \"hp\": 40,\n    \"attack\": 30,\n    \"defense\": 30,\n    \"speed\": 39,\n    \"createdAt\": \"2023-03-12T14:37:10.464Z\",\n    \"updatedAt\": \"2023-03-12T15:48:04.800Z\",\n    \"slug\": \"bulbasaur\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Monster",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/monsters/:slug",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"monsters",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "bulbasaur"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/monsters/:slug",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"monsters",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "bulbasaurs"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"39-dqYlyb2SiRT1Mvi0I1VGRpbWIR0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Mar 2023 16:22:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Failed to delete monster by slug: not found\"\n}"
+						},
+						{
+							"name": "Deleted Successfully",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/monsters/:slug",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"monsters",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "bulbasaur"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Mar 2023 16:23:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "SignUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"andriansyah\",\n    \"password\": \"uhuhuyeyeh\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/sign-up",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"sign-up"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "failed: required field not filled",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/sign-up",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"sign-up"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "64"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"40-jlNjhhRQgpynRNyE9l+ndWYpZ8o\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Mar 2023 17:02:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"\\\"username\\\" is required. \\\"password\\\" is required\"\n}"
+						},
+						{
+							"name": "failed: not allowed to be empty",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"\",\n    \"password\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/sign-up",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"sign-up"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "94"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5e-8rgiiIWXymWV5Zriuph/80w26kw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Mar 2023 17:03:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"\\\"username\\\" is not allowed to be empty. \\\"password\\\" is not allowed to be empty\"\n}"
+						},
+						{
+							"name": "succeed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"andriansyah\",\n    \"password\": \"uhuhuyeyeh\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/sign-up",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"sign-up"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "306"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"132-R+WCxg9zlov5h+UmW53J9XwefZc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Mar 2023 17:08:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"andriansyah\",\n    \"password\": \"$argon2id$v=19$m=65536,t=3,p=4$Ylw4CDv4WvEf8CU2gDxfXw$9jYzuRGM9Hx3jYxM9xOk2ZJMtXam8gam5ykJFpcACCc\",\n    \"role\": \"admin\",\n    \"_id\": \"640e0720ec6c10904ab9b26a\",\n    \"createdAt\": \"2023-03-12T17:08:48.977Z\",\n    \"updatedAt\": \"2023-03-12T17:08:48.977Z\",\n    \"slug\": \"andriansyah\",\n    \"isDeleted\": false,\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "duplicate",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"andriansyah\",\n    \"password\": \"uhuhuyeyeh\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/sign-up",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"sign-up"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "135"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"87-MwDmXsELfpmSVMmuzvPkpINv7cU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Mar 2023 17:09:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Failed to create user: E11000 duplicate key error collection: test.users index: slug_1 dup key: { slug: \\\"andriansyah\\\" }\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"andriansyah\",\n    \"password\": \"uhuhuyeyeh\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/log-in",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"log-in"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "invalid credentials",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"andriansyah\",\n    \"password\": \"uhuhuyeyehs\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/log-in",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"log-in"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21-MzZHBeQUXOlT3agGHY2uE7J05rU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Mar 2023 17:23:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"invalid credentials\"\n}"
+						},
+						{
+							"name": "succeed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"andriansyah\",\n    \"password\": \"uhuhuyeyeh\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/log-in",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"log-in"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "306"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"132-5BXUKUjri3x9Ug6JllZ/JFeHExo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Mar 2023 17:35:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"andriansyah\",\n    \"access_token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGUwNzIwZWM2YzEwOTA0YWI5YjI2YSIsIm5hbWUiOiJhbmRyaWFuc3lhaCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY3ODY0MjUyMiwiZXhwIjoxNjc4NjQ4NTIyfQ.Lu448bltAntsqlPxr3KyiJNe-aez3DcPLTeyT0HlsDp9pJvCgxg1y0lW2xIIf1qBCsoljo3rxPII_MCjNMREkA\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
