@@ -31,6 +31,18 @@
 - `POST /signup`: create a new user account
 - `POST /login`: authenticate a user and retrieve an access token
 
+## How to setup in local
+
+1. Recommended: Use nvm v16
+2. Copy `.env.example` to `.env` and change accordingy
+3. Run `npm install`
+4. Run `npm run start`
+
+## How to run Unit tests
+
+1. Copy `.env.test.example` to `.env.test`
+2. Run `npm run test`
+
 ## Developer remarks:
 
 1. Haven't started for the captured API yet.
